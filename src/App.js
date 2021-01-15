@@ -7,6 +7,7 @@ import NavBar from "./components/docs/nav/NavBar";
 
 import LandPage from "./components/pages/LandPage";
 import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={LandPage} />
             <Route path="/about" component={About} />
+            <Route path="*" component={NotFound} />
           </Switch>
           {/* * */}
         </Router>

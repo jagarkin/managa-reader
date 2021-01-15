@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     :root {
       --black: #1f1f1f;
       --white: #ffffff;
-      --magenta: #eb2f96;
+      --magenta: #f5222d;
       --coral: #1890ff;
     }
 

@@ -20,12 +20,12 @@ const NavBar = () => {
 
   const StyledDrawer = {
     color: "#ffffff",
-    backgroundColor: `#1f1f1f`,
+    backgroundColor: `#111`,
   };
 
   const StyledHeader = {
     color: "#ffffff",
-    backgroundColor: `#1f1f1f`,
+    backgroundColor: `#111`,
   };
 
   return (
@@ -35,6 +35,7 @@ const NavBar = () => {
         <Wrapper>
           <Drawable onClick={showDrawer} />
           <a
+            rel="noreferrer"
             className="exlink"
             href="https://github.com/jagarkin"
             target={"_blank"}
@@ -64,9 +65,11 @@ export default NavBar;
 // style component
 
 const Header = styled.div`
+  z-index: 10;
   width: 100%;
   padding: 5px;
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: space-between;
   background-color: var(--black);
