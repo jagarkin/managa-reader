@@ -1,7 +1,12 @@
 import React from "react";
+import Viewer from "../docs/ModelViewer/Viewer";
 
 const LandPage = () => {
-  return <div>landing</div>;
+  return (
+    <>
+      <Viewer uri="/space/scene.Gltf" />
+    </>
+  );
 };
 
 export default LandPage;

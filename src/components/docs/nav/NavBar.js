@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import Menu from "./Menu";
+import Social from "./Social";
 
 // style component
 import styled from "styled-components";
 import { Drawer } from "antd";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FiGithub } from "react-icons/fi";
-import Menu from "./Menu";
 
 const NavBar = () => {
   const [visible, setVisible] = useState(false);
@@ -51,7 +52,7 @@ const NavBar = () => {
         onClose={onClose}
         visible={visible}
         bodyStyle={StyledDrawer}
-        footer="hello"
+        footer={<Social />}
         footerStyle={StyledHeader}
       >
         <Menu />
