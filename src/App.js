@@ -3,27 +3,39 @@ import "antd/dist/antd.css";
 import { Container, GlobalStyle } from "./ThemeStyle";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import NavBar from "./components/docs/nav/NavBar";
-
-import LandPage from "./components/pages/LandPage";
-import About from "./components/pages/About";
-import NotFound from "./components/pages/NotFound";
+// utils
+import AuthProvider from "./auth/AuthContext";
+import NavBar from "./components/utils/nav/NavBar";
+// layout
+import LandPage from "./components/layout/LandPage";
+import About from "./components/layout/About";
+import Register from "./components/layout/Register";
+import NotFound from "./components/layout/NotFound";
+import Bookmarks from "./components/layout/Bookmarks";
+// Controlling Routes
+import PrivateRoute from "./Routes/PrivateRoute";
+import ProtectedRoute from "./Routes/ProtectedRoute";
 
 function App() {
   return (
     <>
       <GlobalStyle />
+
       <Container>
-        <Router>
-          <NavBar />
-          {/* * */}
-          <Switch>
-            <Route exact path="/" component={LandPage} />
-            <Route path="/about" component={About} />
-            <Route path="*" component={NotFound} />
-          </Switch>
-          {/* * */}
-        </Router>
+        <AuthProvider>
+          <Router>
+            <NavBar />
+            {/* * */}
+            <Switch>
+              <Route path="/about" component={About} />
+              <Route exact path="/" component={LandPage} />
+              <ProtectedRoute path="/register" component={Register} />
+              <PrivateRoute path="/bookmarks" component={Bookmarks} />
+              <Route path="*" component={NotFound} />
+            </Switch>
+            {/* * */}
+          </Router>
+        </AuthProvider>
       </Container>
     </>
   );

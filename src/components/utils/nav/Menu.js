@@ -1,17 +1,38 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../../auth/AuthContext";
 
 // styled component
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import {
   AiOutlineMenuFold,
   AiFillHome,
   AiFillInfoCircle,
+  AiFillStar,
 } from "react-icons/ai";
+import { MdVerifiedUser } from "react-icons/md";
+
+const theme = {
+  primary: "#1890ff",
+  secondary: "#f5222d",
+};
 
 const useMenu = () => {
+  const { currentUser } = useAuth();
+  const Regsitration = {
+    path: "/register",
+    name: "account",
+    icon: <MdVerifiedUser />,
+  };
+  const LoggedIn = {
+    path: "/bookmarks",
+    name: "bookmarks",
+    icon: <AiFillStar />,
+  };
+
   const Items = [
     { path: "/", name: "home", icon: <AiFillHome /> },
+    currentUser ? { ...LoggedIn } : { ...Regsitration },
     { path: "/about", name: "about", icon: <AiFillInfoCircle /> },
   ];
 
@@ -22,25 +43,27 @@ const useMenu = () => {
 
   return (
     <>
-      <Container>
-        <Div>
-          <Text>Menu </Text>
-          <MenuIcon />
-        </Div>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Div>
+            <Text>Menu </Text>
+            <MenuIcon />
+          </Div>
 
-        <List>
-          {Items.map((item, index) => {
-            return (
-              <MenuItem key={index}>
-                <Linker exact activeStyle={active} to={item.path}>
-                  {item.name}
-                  {item.icon}
-                </Linker>
-              </MenuItem>
-            );
-          })}
-        </List>
-      </Container>
+          <List>
+            {Items.map((item, index) => {
+              return (
+                <MenuItem key={index}>
+                  <Linker exact activeStyle={active} to={item.path}>
+                    {item.name}
+                    {item.icon}
+                  </Linker>
+                </MenuItem>
+              );
+            })}
+          </List>
+        </Container>
+      </ThemeProvider>
     </>
   );
 };
@@ -92,6 +115,10 @@ const Linker = styled(NavLink)`
   &:hover {
     padding: 10px 25px;
     color: var(--white);
-    background-color: var(--coral);
+    background-image: linear-gradient(
+      271deg,
+      ${(props) => props.theme.secondary},
+      ${(props) => props.theme.primary}
+    );
   }
 `;

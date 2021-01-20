@@ -21,7 +21,7 @@ const Viewer = ({ uri }) => {
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
           }}
         >
-          <ambientLight intensity={0.2} />
+          <ambientLight intensity={0.5} />
           <pointLight intensity={1} position={[-10, -25, -10]} />
           <spotLight
             castShadow
@@ -33,7 +33,7 @@ const Viewer = ({ uri }) => {
             shadow-mapSize-height={1024}
             shadow-bias={-0.0001}
           />
-          <fog attach="fog" args={["#1890ff", 16, 50]} />
+          <fog attach="fog" args={["#1890ff", 16, 40]} />
           <Controls />
           <Model path={uri} />
         </Canvas>
