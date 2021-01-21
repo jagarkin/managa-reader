@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import Social from "./Social";
 
@@ -32,7 +33,10 @@ const NavBar = () => {
   return (
     <>
       <Header>
-        <Text>apoca</Text>
+        <Link to="/">
+          <Text>apoca</Text>
+        </Link>
+
         <Wrapper>
           <Drawable onClick={showDrawer} />
           <a

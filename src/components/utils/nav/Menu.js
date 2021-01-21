@@ -8,9 +8,10 @@ import {
   AiOutlineMenuFold,
   AiFillHome,
   AiFillInfoCircle,
-  AiFillStar,
+  AiFillBook,
 } from "react-icons/ai";
 import { MdVerifiedUser } from "react-icons/md";
+import { BsFillBookmarksFill } from "react-icons/bs";
 
 const theme = {
   primary: "#1890ff",
@@ -27,11 +28,12 @@ const useMenu = () => {
   const LoggedIn = {
     path: "/bookmarks",
     name: "bookmarks",
-    icon: <AiFillStar />,
+    icon: <BsFillBookmarksFill />,
   };
 
   const Items = [
     { path: "/", name: "home", icon: <AiFillHome /> },
+    { path: "/mangalist", name: "manga", icon: <AiFillBook /> },
     currentUser ? { ...LoggedIn } : { ...Regsitration },
     { path: "/about", name: "about", icon: <AiFillInfoCircle /> },
   ];

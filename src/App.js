@@ -12,6 +12,7 @@ import About from "./components/layout/About";
 import Register from "./components/layout/Register";
 import NotFound from "./components/layout/NotFound";
 import Bookmarks from "./components/layout/Bookmarks";
+import MangaList from "./components/layout/MangaList";
 // Controlling Routes
 import PrivateRoute from "./Routes/PrivateRoute";
 import ProtectedRoute from "./Routes/ProtectedRoute";
@@ -29,6 +30,7 @@ function App() {
             <Switch>
               <Route path="/about" component={About} />
               <Route exact path="/" component={LandPage} />
+              <Route path="/mangalist" component={MangaList} />
               <ProtectedRoute path="/register" component={Register} />
               <PrivateRoute path="/bookmarks" component={Bookmarks} />
               <Route path="*" component={NotFound} />

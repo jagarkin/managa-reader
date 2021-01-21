@@ -20,6 +20,7 @@ const Register = () => {
           </Para>
         </Content>
         <Container>
+          <Text>Connecting never been easier</Text>
           <LoginGoogle />
           <LoginGithub />
         </Container>

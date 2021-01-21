@@ -35,7 +35,7 @@ export const Text = styled.h1`
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
+  background-clip: text;
   -moz-text-fill-color: transparent;
 
   background-image: linear-gradient(
